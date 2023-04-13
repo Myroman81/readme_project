@@ -10,6 +10,8 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }
+    //fs.writeToFile(fileName, data, error => {
+        
 
 // TODO: Create a function to initialize app
 function init() { 
