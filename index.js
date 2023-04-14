@@ -9,7 +9,16 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    // now we need to write the data to the file system
+    fs.writeFile(fileName, data, function(err) {
+        if(err) {
+            throw err;
+        }
+        console.log("File Saved");
+    })
+
+ }
     //fs.writeToFile(fileName, data, error => {
         
 
@@ -41,17 +50,15 @@ function init() {
         ])
         .then(function (response)  {
 
-            console.log("User Collected data: ", response);
+            //console.log("User Collected data: ", response);
 
 
             let result = generateMarkdown(response);
 
-            console.log("Returned Data: ", result);
+            //console.log("Returned Data: ", result);
+            //const stringResponse = JSON.stringify(result);
 
-
-            const stringResponse = JSON.stringify(response)
-
-            //fs.writeFile(log.txt)
+            writeToFile("README.md", result)
         })
         .catch(function(error) {
             throw error;
